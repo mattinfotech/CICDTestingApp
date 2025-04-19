@@ -7,11 +7,11 @@ pipeline {
     }
 
     stages {
-        stage('Clone Source') {
-            steps {
-                git credentialsId: 'github-token', url: 'https://github.com/mattinfotech/CICDTestingApp.git'
-            }
-        }
+        // stage('Clone Source') {
+        //     steps {
+        //         git credentialsId: 'github-token', url: 'https://github.com/mattinfotech/CICDTestingApp.git'
+        //     }
+        // }
 
         stage('Build Docker Image') {
             steps {

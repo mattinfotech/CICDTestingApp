@@ -5,7 +5,7 @@ services:
     image: fluent-blazor-app
     container_name: fluent-blazor-app
     ports:
-      - "8080:8080"
+      - "5000:8080"
     networks:
       - app-network
 
@@ -13,7 +13,7 @@ services:
     image: nginx:latest
     container_name: nginx-proxy
     ports:
-      - "8081:80"
+      - "80:80"
     volumes:
       - ./default.conf:/etc/nginx/conf.d/default.conf
     depends_on:

@@ -50,7 +50,7 @@ pipeline {
                     sh 'docker rm fluent-blazor-app || true'
 
                     // Run the new container
-                    sh 'docker run -d -p 8080:8080 --name fluent-blazor-app $DOCKER_IMAGE'
+                    sh 'docker run -d -p 5000:8080 --name fluent-blazor-app $DOCKER_IMAGE'
 
                     // Restart NGINX (if needed) to reflect changes
                     sh 'docker exec nginx-proxy nginx -s reload'

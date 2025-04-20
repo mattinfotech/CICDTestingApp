@@ -21,8 +21,8 @@ pipeline {
                     sh 'ls -l'
 
                     // Build the Docker image
-                    // sh 'docker build -t $DOCKER_IMAGE .'
-                    sh 'docker build -f src/FluentBlazorApp/Dockerfile -t $DOCKER_IMAGE .'
+                    sh 'docker build -t $DOCKER_IMAGE .'
+                    // sh 'docker build -f src/FluentBlazorApp/Dockerfile -t $DOCKER_IMAGE .'
                 }
             }
         }

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35806.99 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CiCdTestingBlazorApp", "CiCdTestingBlazorApp\CiCdTestingBlazorApp\CiCdTestingBlazorApp.csproj", "{7E42B61E-9B48-4C70-972C-089D931CB44E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CiCdTestingBlazorApp.Client", "CiCdTestingBlazorApp\CiCdTestingBlazorApp.Client\CiCdTestingBlazorApp.Client.csproj", "{57C2DD86-2D4A-4AEF-A040-2B4182055E93}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7E42B61E-9B48-4C70-972C-089D931CB44E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E42B61E-9B48-4C70-972C-089D931CB44E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E42B61E-9B48-4C70-972C-089D931CB44E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E42B61E-9B48-4C70-972C-089D931CB44E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57C2DD86-2D4A-4AEF-A040-2B4182055E93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57C2DD86-2D4A-4AEF-A040-2B4182055E93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57C2DD86-2D4A-4AEF-A040-2B4182055E93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57C2DD86-2D4A-4AEF-A040-2B4182055E93}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0D6D2F6B-D99C-48D3-8DC2-A55D78897A38}
+	EndGlobalSection
+EndGlobal

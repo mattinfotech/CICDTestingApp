@@ -2,36 +2,67 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = 'cicdtestingapp'
-        CONTAINER_NAME = 'cicdtestingapp-container'
+        IMAGE_NAME = 'fluent-blazor-app'
+        DOCKER_IMAGE = 'fluent-blazor-app:latest'
     }
 
     stages {
-        stage('Build Docker Image') {
+        stage('Checkout') {
+            steps {
+                checkout scm  // Checkout code from GitHub repository
+            }
+        }
+
+        stage('Build') {
             steps {
                 script {
-                    sh 'docker build -t ${IMAGE_NAME}:latest .'
+                    // Build the Docker image for the Blazor app
+                    sh 'docker build -t $DOCKER_IMAGE .'
                 }
             }
         }
 
-        stage('Stop Previous Container') {
+        stage('Test') {
             steps {
                 script {
-                    sh '''
-                    docker stop ${CONTAINER_NAME} || true
-                    docker rm ${CONTAINER_NAME} || true
-                    '''
+                    // Add any unit tests you want to run
+                    // Example: dotnet test (for .NET projects)
+                    sh 'docker run --rm $DOCKER_IMAGE dotnet test'
                 }
             }
         }
 
-        stage('Run Container') {
+        stage('Push to Docker Hub') {
             steps {
                 script {
-                    sh 'docker run -d --name ${CONTAINER_NAME} -p 5000:80 ${IMAGE_NAME}:latest'
+                    // Push the image to Docker Hub or your Docker registry
+                    // sh 'docker push $DOCKER_IMAGE'
+                    // Uncomment and use if you have a registry
                 }
             }
+        }
+
+        stage('Deploy') {
+            steps {
+                script {
+                    // Stop the existing container (if any)
+                    sh 'docker stop fluent-blazor-app || true'
+                    sh 'docker rm fluent-blazor-app || true'
+
+                    // Run the new container
+                    sh 'docker run -d -p 8080:8080 --name fluent-blazor-app $DOCKER_IMAGE'
+
+                    // Restart NGINX (if needed) to reflect changes
+                    sh 'docker exec nginx-proxy nginx -s reload'
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            // Clean up Docker containers and images (optional)
+            sh 'docker system prune -f'
         }
     }
 }

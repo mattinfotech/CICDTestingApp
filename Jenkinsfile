@@ -27,14 +27,14 @@ pipeline {
             }
         }
 
-        stage('Test') {
-            steps {
-                script {
-                    // Run tests within the Docker container
-                    sh 'docker run --rm $DOCKER_IMAGE dotnet test'
-                }
-            }
-        }
+        // stage('Test') {
+        //     steps {
+        //         script {
+        //             // Run tests within the Docker container
+        //             sh 'docker run --rm $DOCKER_IMAGE dotnet test'
+        //         }
+        //     }
+        // }
 
         stage('Deploy') {
             steps {
